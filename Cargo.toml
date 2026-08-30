@@ -1,0 +1,44 @@
+[package]
+name = "lenso-support-web-plugin"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.94"
+license = "MIT"
+repository = "https://github.com/LioRael/lenso-support-web-plugin"
+description = "Standalone linked Web endpoint for the Lenso Support Case capability."
+publish = true
+
+[package.metadata.lenso]
+plugin-id = "lenso.support.web"
+root-slot = "web"
+
+[dependencies]
+futures = "0.3"
+lenso = { version = "0.5.0", git = "https://github.com/LioRael/lenso-runtime-rust", rev = "b763a63adc20f1ccc9955e784c0d04c21489126b" }
+lenso-auth-sdk = { version = "0.2.1", git = "https://github.com/LioRael/lenso-auth-plugin", rev = "b4a2f53df882ae51021aa3d5922d8ee41bf97c72" }
+lenso-capability-auth = { version = "0.1.2", git = "https://github.com/LioRael/lenso-auth-plugin", rev = "b4a2f53df882ae51021aa3d5922d8ee41bf97c72" }
+lenso-capability-http-endpoint = { version = "0.2.7", git = "https://github.com/LioRael/lenso-web", rev = "d3fa8b27c3dea470fcbf72183a7cca1fc032a117" }
+lenso-capability-support-case = { version = "0.1.0", git = "https://github.com/LioRael/lenso-support-case-plugin", rev = "4713ba95ddc1871911d1eca1572bde2082508a42" }
+lenso-kernel = { version = "0.2.0", git = "https://github.com/LioRael/lenso", rev = "cd35675a191d815b690c8889756dfe859a0e4d7b" }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[dev-dependencies]
+lenso-app-plan = { version = "0.3.0", git = "https://github.com/LioRael/lenso", rev = "cd35675a191d815b690c8889756dfe859a0e4d7b" }
+lenso-native-adapter = { version = "0.3.0", git = "https://github.com/LioRael/lenso-runtime-rust", rev = "b763a63adc20f1ccc9955e784c0d04c21489126b" }
+lenso-runner = { version = "0.2.0", git = "https://github.com/LioRael/lenso-runtime-rust", rev = "b763a63adc20f1ccc9955e784c0d04c21489126b" }
+time = "0.3"
+tokio = { version = "1.52", features = ["macros", "rt"] }
+
+[lints.rust]
+unsafe_code = "forbid"
+missing_debug_implementations = "warn"
+
+[lints.clippy]
+all = { level = "warn", priority = -1 }
+pedantic = { level = "warn", priority = -1 }
+module_name_repetitions = "allow"
+missing_errors_doc = "allow"
+missing_panics_doc = "allow"
+must_use_candidate = "allow"
+too_many_lines = "allow"
