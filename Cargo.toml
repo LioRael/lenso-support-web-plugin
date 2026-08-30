@@ -5,7 +5,7 @@ edition = "2024"
 rust-version = "1.94"
 license = "MIT"
 repository = "https://github.com/LioRael/lenso-support-web-plugin"
-description = "Standalone linked Web endpoint for the Lenso Support Case capability."
+description = "Removable Support Agent Workspace for a Lenso Support application."
 publish = true
 
 [package.metadata.lenso]
@@ -14,19 +14,19 @@ root-slot = "web"
 
 [dependencies]
 futures = "0.3"
-lenso = { version = "0.5.0", git = "https://github.com/LioRael/lenso-runtime-rust", rev = "b763a63adc20f1ccc9955e784c0d04c21489126b" }
-lenso-auth-sdk = { version = "0.2.1", git = "https://github.com/LioRael/lenso-auth-plugin", rev = "b4a2f53df882ae51021aa3d5922d8ee41bf97c72" }
-lenso-capability-auth = { version = "0.1.2", git = "https://github.com/LioRael/lenso-auth-plugin", rev = "b4a2f53df882ae51021aa3d5922d8ee41bf97c72" }
-lenso-capability-http-endpoint = { version = "0.2.7", git = "https://github.com/LioRael/lenso-web", rev = "d3fa8b27c3dea470fcbf72183a7cca1fc032a117" }
-lenso-capability-support-case = { version = "0.1.0", git = "https://github.com/LioRael/lenso-support-case-plugin", rev = "4713ba95ddc1871911d1eca1572bde2082508a42" }
-lenso-kernel = { version = "0.2.0", git = "https://github.com/LioRael/lenso", rev = "cd35675a191d815b690c8889756dfe859a0e4d7b" }
+lenso = { version = "0.5.0", git = "https://github.com/LioRael/lenso-runtime-rust", rev = "89815107385475c8b5be378bdcf5e21aa74e02f0" }
+lenso-auth-sdk = { version = "0.2.1", git = "https://github.com/LioRael/lenso-auth-plugin", rev = "7f3b223679f07a4cd91a1b8d94b41b06130a4e80" }
+lenso-capability-auth = { version = "0.1.2", git = "https://github.com/LioRael/lenso-auth-plugin", rev = "7f3b223679f07a4cd91a1b8d94b41b06130a4e80" }
+lenso-capability-http-endpoint = { version = "0.2.7", git = "https://github.com/LioRael/lenso-web", rev = "56acd0d058b9ce29c1551da73c865cb523ad4df9" }
+lenso-capability-support-case = { version = "0.1.0", git = "https://github.com/LioRael/lenso-support-case-plugin", rev = "8d8a173e699ff7cae06fecd719e3f1ee3c1834c0" }
+lenso-kernel = { version = "0.2.0", git = "https://github.com/LioRael/lenso", rev = "8599db7e4a214ed92f32089f81d14c833d4becf6" }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 
 [dev-dependencies]
-lenso-app-plan = { version = "0.3.0", git = "https://github.com/LioRael/lenso", rev = "cd35675a191d815b690c8889756dfe859a0e4d7b" }
-lenso-native-adapter = { version = "0.3.0", git = "https://github.com/LioRael/lenso-runtime-rust", rev = "b763a63adc20f1ccc9955e784c0d04c21489126b" }
-lenso-runner = { version = "0.2.0", git = "https://github.com/LioRael/lenso-runtime-rust", rev = "b763a63adc20f1ccc9955e784c0d04c21489126b" }
+lenso-app-plan = { version = "0.3.0", git = "https://github.com/LioRael/lenso", rev = "8599db7e4a214ed92f32089f81d14c833d4becf6" }
+lenso-native-adapter = { version = "0.3.0", git = "https://github.com/LioRael/lenso-runtime-rust", rev = "89815107385475c8b5be378bdcf5e21aa74e02f0" }
+lenso-runner = { version = "0.2.0", git = "https://github.com/LioRael/lenso-runtime-rust", rev = "89815107385475c8b5be378bdcf5e21aa74e02f0" }
 time = "0.3"
 tokio = { version = "1.52", features = ["macros", "rt"] }
 

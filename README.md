@@ -1,10 +1,10 @@
-# Lenso Support Web Plugin
+# Lenso Support Agent Workspace Plugin
 
-`lenso.support.web` is a removable, linked native Web Plugin for the Lenso Support Case workflow. It provides `lenso.http.endpoint@1` and delegates every case, transition, assignment, public message, and internal note to exactly one bound `lenso.support-case@1` Provider.
+`lenso.support.web` is a removable, linked native Support Agent Workspace for the Lenso Support Case workflow. It provides `lenso.http.endpoint@1` and delegates every case, transition, assignment, public message, and internal note to exactly one bound `lenso.support-case@1` Provider.
 
 ## Product workflow
 
-The page at `/support` provides a filterable, cursor-paginated case inbox; case detail and conversation; case creation; state transitions; public replies; and internal notes. The typed JSON API additionally exposes case update and assignment operations.
+The authenticated page at `/support` provides a filterable, cursor-paginated case inbox; case detail and conversation; case creation; state transitions; public replies; and internal notes. The typed JSON API additionally exposes case update and assignment operations. This is the staff-facing workspace; the requester-facing Help Center remains a separate, replaceable Plugin.
 
 The Web Plugin does not persist, filter, or independently reconstruct cases or messages. It authenticates selected ingress evidence through exactly one `lenso.auth@1`, attaches the returned `ActorAssertion`, and invokes the Support Case Provider with `_with_context`. The target remains responsible for requester-versus-agent visibility, internal-note access, valid transitions, revision checks, idempotency, and persistence.
 
@@ -27,6 +27,10 @@ All errors use `application/problem+json`. Missing or invalid credentials produc
 The `/messages` write route accepts only `public`, while `/notes` accepts only `internal`. This route-level distinction improves intent, but the target Provider still decides whether the actor may read or create either visibility.
 
 Static HTML, CSS, and JavaScript are embedded in the crate. The browser stores the organization and bearer credential only in its local storage; production Hosts should normally supply credentials through their own secure session ingress policy.
+
+## State and deletion
+
+The Plugin is stateless and has no lifecycle resources. Removing its Instance removes the `/support` page and `/api/support/*` agent routes only. It does not remove or migrate cases, messages, assignments, or transitions owned by the bound Support Case Provider. The composition test resolves a Plan with no `lenso.support.web` Instance and still invokes `lenso.support-case@1`, proving that the domain remains available without a Kernel branch or hidden Web registration.
 
 ## Verification
 
