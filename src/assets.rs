@@ -4,13 +4,13 @@ pub(crate) const PAGE: &str = r#"<!doctype html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="dark light">
-  <title>Lenso Support</title>
+  <title>Lenso Support Agent Workspace</title>
   <link rel="stylesheet" href="/support/assets/app.css">
 </head>
 <body>
   <div class="shell">
     <aside>
-      <div class="brand"><span>L</span>Lenso Support</div>
+      <div class="brand"><span>L</span>Lenso Support Agent</div>
       <nav><button class="active">Inbox <b id="inbox-count">—</b></button><button>My cases</button><button>Waiting</button><button>Resolved</button></nav>
       <section class="connect"><label>Organization<input id="organization" placeholder="org_demo"></label><label>Bearer token<input id="token" type="password" placeholder="••••••••"></label><button id="connect">Open inbox</button><small id="connection-state">Not connected</small></section>
     </aside>
